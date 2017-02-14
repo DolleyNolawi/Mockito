@@ -28,5 +28,16 @@ public class TodoBusinessImplMockitoTest {
                 .retrieveTodosRelatedToSpring("Ranga");
         assertEquals(2, todos.size());
     }
-
+	
+	@Test
+    public void usingMockito_withEmptylist() {
+        TodoService todoService = mock(TodoService.class);        
+        List<String> allTodos = Arrays.asList();        
+        when(todoService.retrieveTodos("dum")).thenReturn(allTodos);
+        
+        TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
+        List<String> todos = todoBusinessImpl
+                .retrieveTodosRelatedToSpring("dum");
+        assertEquals(0, todos.size());
+    }
 }

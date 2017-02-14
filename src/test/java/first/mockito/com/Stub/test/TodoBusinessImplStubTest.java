@@ -22,6 +22,7 @@ public class TodoBusinessImplStubTest {
 		}
 		assertEquals(2, alist.size());
 		assertEquals(alist.get(0), "learn Spring");
+		assertEquals(alist.get(1), "learn Spring mvc");
 	}
 
 }
